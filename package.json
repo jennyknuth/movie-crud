@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/jennyknuth/movie-crud/issues"
   },
-  "homepage": "https://github.com/jennyknuth/movie-crud"
+  "homepage": "https://github.com/jennyknuth/movie-crud",
+  "dependencies": {
+    "mime": "^1.3.4",
+    "monk": "^1.0.1",
+    "mustache": "^2.1.2",
+    "qs": "^4.0.0",
+    "routes": "^2.0.0"
+  }
 }

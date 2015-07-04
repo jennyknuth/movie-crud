@@ -1,5 +1,3 @@
-alert('foo')
-
 var http = require('http'),
     router = require('./router'),
     url = require('url')
@@ -21,7 +19,7 @@ var server = http.createServer(function (req, res) {
 
 })
 
-server.listen(8080, function (err) {
+server.listen(8888, function (err) {
   if (err) console.log('Doah', err)
-  console.log('Woot. A server is running on port 8080')
+  console.log('Woot. A server is running on port 8888')
 })
