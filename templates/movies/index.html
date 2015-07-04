@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+<link rel='stylesheet' href='style.css'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Jenny's Movies</title>
+</head>
+<body>
+  <header>
+    <h1>Jenny's Movie Ratings</h1>
+    <h3>See if your opinions are correct!</h3>
+  </header>
+  <h1>All Movies</h1>
+  <a href="/bands/new"><button>New Movie</button></a>
+  <table>
+    <th>
+      <td>Title</td>
+      <td>Director</td>
+      <td>Year</td>
+      <td>My rating</td>
+    </th>
+    <tr>
+      <td>{{title}}</td>
+      <td>{{director}}</td>
+      <td>{{year}}</td>
+      <td>{{rating}}</td>
+      <td>
+        <form action="/movies/{{id}}/delete" method="POST">
+          <input type="submit" value="Delete Movie">
+        </form>
+      </td>
+      <td>
+        <a href="/bands/{{_id}}/edit"><button>Edit {{name}}</button></a>
+      </td>
+    </tr>
+  </table>
+</body>
+<script src='app.js'></script>
+</html>
