@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang='en'>
+<link rel='stylesheet' href='/public/style.css'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Jenny's Movies</title>
+</head>
+<body>
+  <header>
+    <h1>Jenny's Movie Ratings</h1>
+    <h3>See if your opinions are correct!</h3>
+  </header>
+  <section>
+    <a href="/movies"><button class="button">BACK</button></a>
+      <h2>Add a Movie</h2>
+      <form action="/movies" method="POST">
+        <table class = "new">
+          <tr>
+            <th>
+              <label for="title">Title</label>
+            </th>
+            <td>
+              <input type="text" name="title" id="title" size="50">
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <label for="director">Director</label>
+            </th>
+            <td>
+              <input type="text" name="director" id="director" size="50">
+            </td>
+          </tr><tr>
+            <th>
+              <label for="year">Year</label>
+            </th>
+            <td>
+              <input type="text" name="year" id="year" size="50">
+            </td>
+          </tr><tr>
+            <th>
+              <label for="rating">My Rating</label>
+            </th>
+            <td>
+              <input type="text" name="rating" id="rating" size="10">
+            </td>
+          </tr><tr>
+            <th>
+              <label for="poster">Poster URL</label>
+            </th>
+            <td>
+              <input type="text" name="poster" id="poster" size="50">
+            </td>
+          </tr><tr>
+            <th>
+            </th>
+            <td>
+              <input type="submit" value="Add Movie" class="button">
+            </td>
+          </tr>
+        </table>
+      </form>
+  </section>
+</body>
+</html>

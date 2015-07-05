@@ -4,24 +4,41 @@ box-sizing: border-box;
 
 body {
   font-family: sans-serif;
+  font-size: 14pt;
+  padding: 1em;
+  color: rgb(74, 67, 102);
+  background-color: lightgray;
+}
+
+body.home{
+  background-image: url("http://3.bp.blogspot.com/-pu2F6pCIcww/U7ALr-rnEZI/AAAAAAAACRw/SDwxOK3fP_A/s1600/IMG_7846.JPG");
 }
 
 header {
   padding: 2em;
-  background-color: darkgray;
+  background-color: rgba(74, 67, 102, .95);
   color: white;
 }
+
+/* h1, h2, h3 {
+  font-weight: 300;
+} */
 
 section {
   padding: 2em;
 }
 
-button, input {
+.button {
   float: right;
-  background-color: darkgray;
+  background-color: rgba(74, 67, 102, .95);
   border: none;
   padding: 1em 2em;
   color: white;
+  font-size: 14pt;
+}
+
+input {
+  height: 3.5em;
 }
 
 table {
@@ -31,11 +48,31 @@ table {
 
 td, th {
   padding: 1em 2em;
+}
+
+.index td {
+  border-top: 1.5px solid lightgray;
   text-align: center;
 }
 
-td {
-  border-top: 1.5px solid lightgray;
+.new th {
+  padding: 0;
+  text-align: left;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(48,	52,	166);
+}
+
+a:hover {
+ color: rgb(106,	147,	238);
+}
+
+img {
+  float: left;
+  margin-right: 2em;
+  border: 8px solid white;
 }
 
 /* tr {
