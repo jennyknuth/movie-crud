@@ -11,7 +11,8 @@ routes.addRoute('/movies', (req, res, url) => {
   res.setHeader('Content-Type', 'text/html')
   if (req.method === 'GET') {
     console.log(req.method)
-    movies.find({}, function(err, docs) {
+    movies.find({}, function (err, docs) {
+      if (err) return ('no movies found')
       var template = view.render('movies/index', {movies: docs}) // called docs, an array from mongo
       res.end(template)
     })
@@ -20,12 +21,12 @@ routes.addRoute('/movies', (req, res, url) => {
     console.log(req.method)
     // quirks about how data comes in from Node: as a readable stream
     var data = ''
-    req.on('data', function(chunk) {
+    req.on('data', function (chunk) {
       data += chunk
     })
-    req.on('end', function(){
+    req.on('end', function () {
       var movie = qs.parse(data)
-      movies.insert(movie, function(err, doc) {
+      movies.insert(movie, function (err, doc) {
         if (err) res.end('oops')
         res.writeHead(302, {'Location': '/movies'})
         res.end()
@@ -33,7 +34,7 @@ routes.addRoute('/movies', (req, res, url) => {
     })
   }
 })
-routes.addRoute('/movies/new', function (req,res,url) {
+routes.addRoute('/movies/new', function (req, res, url) {
   console.log(req.url)
   res.setHeader('Content-Type', 'text/html')
   if (req.method === 'GET') {
@@ -42,12 +43,12 @@ routes.addRoute('/movies/new', function (req,res,url) {
     res.end(template)
   }
 })
-routes.addRoute('/movies/:id', function(req, res, url) {
+routes.addRoute('/movies/:id', function (req, res, url) {
   console.log(req.url)
   res.setHeader('Content-Type', 'text/html')
   if (req.method === 'GET') {
-    console.log(req.method);
-    movies.findOne({_id: url.params.id}, function(err, doc) {
+    console.log(req.method)
+    movies.findOne({_id: url.params.id}, function (err, doc) {
       if (err) res.end('It broke')
       var template = view.render('movies/show', doc)
       res.end(template)
@@ -56,7 +57,7 @@ routes.addRoute('/movies/:id', function(req, res, url) {
 })
 routes.addRoute('/movies/:id/delete', (req, res, url) => {
   if (req.method === 'POST') {
-    movies.remove({_id: url.params.id}, function(err, doc) {
+    movies.remove({_id: url.params.id}, function (err, doc) {
       if (err) console.log(err)
       res.writeHead(302, {'Location': '/movies'})
       res.end()
@@ -66,7 +67,8 @@ routes.addRoute('/movies/:id/delete', (req, res, url) => {
 routes.addRoute('/movies/:id/edit', (req, res, url) => {
   if (req.method === 'GET') {
     console.log(req.method)
-    movies.findOne({_id: url.params.id}, function(err, doc){
+    movies.findOne({_id: url.params.id}, function (err, doc) {
+      if (err) return ('movie not found')
       var template = view.render('movies/edit', doc)
       res.end(template)
     })
@@ -74,7 +76,7 @@ routes.addRoute('/movies/:id/edit', (req, res, url) => {
 })
 routes.addRoute('/movies/:id/update', function (req, res, url) {
   if (req.method === 'POST') {
-    var data = '' //query string coming in from the form
+    var data = '' // query string coming in from the form
     req.on('data', function (chunk) {
       data += chunk
     })
@@ -91,7 +93,7 @@ routes.addRoute('/movies/:id/update', function (req, res, url) {
 routes.addRoute('/public/*', function (req, res, url) { // dynamically selecting public anything
   console.log(req.url)
   res.setHeader('Content-Type', mime.lookup(req.url)) // needed because of the splat
-  fs.readFile('.'+ req.url, function (err, file) { // the dynamic part for our static files
+  fs.readFile('.' + req.url, function (err, file) { // the dynamic part for our static files
     if (err) {
       res.setHeader('Content-Type', 'text/html')
       res.end('404')
@@ -108,7 +110,5 @@ routes.addRoute('/', function (req, res, url) {
     res.end(file.toString())
   })
 })
-
-
 
 module.exports = routes
