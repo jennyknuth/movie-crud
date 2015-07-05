@@ -6,12 +6,39 @@ body {
   font-family: sans-serif;
 }
 
-button {
+header {
+  padding: 2em;
+  background-color: darkgray;
+  color: white;
+}
+
+section {
+  padding: 2em;
+}
+
+button, input {
   float: right;
+  background-color: darkgray;
+  border: none;
+  padding: 1em 2em;
+  color: white;
+}
+
+table {
+  border-collapse: collapse;
+  border: none;
 }
 
 td, th {
-  /* border-top: 1px solid #999; */
-  padding: 0.5rem;
+  padding: 1em 2em;
   text-align: center;
 }
+
+td {
+  border-top: 1.5px solid lightgray;
+}
+
+/* tr {
+  border: 2px solid gray;
+}
+ */
