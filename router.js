@@ -63,6 +63,32 @@ routes.addRoute('/movies/:id/delete', (req, res, url) => {
     })
   }
 })
+routes.addRoute('/movies/:id/edit', (req, res, url) => {
+  if (req.method === 'GET') {
+    console.log(req.method)
+    movies.findOne({_id: url.params.id}, function(err, doc){
+      var template = view.render('movies/edit', doc)
+      res.end(template)
+    })
+  }
+})
+routes.addRoute('/movies/:id/update', function (req, res, url) {
+  if (req.method === 'POST') {
+    var data = '' //query string coming in from the form
+    req.on('data', function (chunk) {
+      data += chunk
+    })
+
+    req.on('end', function () {
+      var movie = qs.parse(data)
+      movies.update({_id: url.params.id}, movie, function (err, doc) {
+        if (err) throw console.error
+        res.writeHead(302, {'Location': '/movies'})
+        res.end()
+      })
+    })
+  }
+})
 routes.addRoute('/public/*', function (req, res, url) { // dynamically selecting public anything
   console.log(req.url)
   res.setHeader('Content-Type', mime.lookup(req.url)) // needed because of the splat

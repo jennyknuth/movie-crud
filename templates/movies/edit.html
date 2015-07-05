@@ -13,11 +13,54 @@
   <section>
     <a href="/movies"><button class="button">BACK</button></a>
       <h2>{{title}}</h2>
-      <img class="poster" src="{{poster}}" alt="movie poster" height="350">
-      <h3>Title: {{title}}</h3>
-      <h3>Director: {{director}}</h3>
-      <h3>Year: {{year}}</h3>
-      <h3>My Rating: {{rating}}</h3>
+      <img class="poster" src="{{poster}}" alt="movie poster" height="375">
+      <form action="/movies/{{_id}}/update" method="POST">
+        <table class = "new">
+          <tr>
+            <th>
+              <label for="title">Title</label>
+            </th>
+            <td>
+              <input type="text" name="title" id="title" size="40" value="{{title}}">
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <label for="director">Director</label>
+            </th>
+            <td>
+              <input type="text" name="director" id="director" size="40" value="{{director}}">
+            </td>
+          </tr><tr>
+            <th>
+              <label for="year">Year</label>
+            </th>
+            <td>
+              <input type="text" name="year" id="year" size="5" value="{{year}}">
+            </td>
+          </tr><tr>
+            <th>
+              <label for="rating">My Rating</label>
+            </th>
+            <td>
+              <input type="text" name="rating" id="rating" size="5" value="{{rating}}">
+            </td>
+          </tr><tr>
+            <th>
+              <label for="poster">Poster URL</label>
+            </th>
+            <td>
+              <input type="text" name="poster" id="poster" size="50" value="{{poster}}">
+            </td>
+          </tr><tr>
+            <th>
+            </th>
+            <td>
+              <input type="submit" value="Update Movie" class="button">
+            </td>
+          </tr>
+        </table>
+      </form>
   </section>
 </body>
 </html>
