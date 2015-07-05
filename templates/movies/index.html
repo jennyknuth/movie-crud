@@ -25,7 +25,7 @@
         <tbody>
           {{#movies}}
           <tr>
-            <th><a href="/movies/{{_id}}">{{title}}</a></th>
+            <td><b><a href="/movies/{{_id}}">{{title}}</a></b></td>
             <td>{{director}}</td>
             <td>{{year}}</td>
             <td>{{rating}}</td>
@@ -35,7 +35,7 @@
               </form>
             </td>
             <td>
-              <a href="/movies/{{_id}}/edit"><button class="button">Edit {{name}}</button></a>
+              <a href="/movies/{{_id}}/edit"><button class="button">Edit</button></a>
             </td>
           </tr>
           {{/movies}}

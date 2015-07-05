@@ -12,7 +12,7 @@
   </header>
   <section>
     <a href="/movies"><button class="button">BACK</button></a>
-      <h2>{{title}}</h2>
+      <a href="/movies/{{_id}}"><h2>{{title}}</h2></a>
       <img class="poster" src="{{poster}}" alt="movie poster" height="375">
       <form action="/movies/{{_id}}/update" method="POST">
         <table class = "new">
@@ -56,7 +56,7 @@
             <th>
             </th>
             <td>
-              <input type="submit" value="Update Movie" class="button">
+              <input type="submit" value="Edit Movie" class="button">
             </td>
           </tr>
         </table>

@@ -78,7 +78,6 @@ routes.addRoute('/movies/:id/update', function (req, res, url) {
     req.on('data', function (chunk) {
       data += chunk
     })
-
     req.on('end', function () {
       var movie = qs.parse(data)
       movies.update({_id: url.params.id}, movie, function (err, doc) {
